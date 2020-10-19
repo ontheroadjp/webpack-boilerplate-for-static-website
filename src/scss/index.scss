@@ -1,0 +1,18 @@
+// css framework
+// @import "../node_modules/bulma/bulma";
+
+// utilities
+@import "./utils/mixins";       // global mixins
+@import "./utils/variables";    // global variables
+
+// initialize
+@import "./initialize/normalize";    // normalize browsers to make more consistent
+@import "./initialize/clearfix";     // clearfix for floats
+@import "./initialize/border-box";   // global border-box setting
+
+// global styles
+@import "./global/typography";  // global typography
+@import "./global/global";      // global styles
+
+// sections
+@import "./layout/header";
