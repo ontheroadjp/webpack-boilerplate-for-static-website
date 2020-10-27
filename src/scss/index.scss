@@ -4,6 +4,7 @@
 // utilities
 @import "./utils/mixins";       // global mixins
 @import "./utils/variables";    // global variables
+@import "./utils/images";       // global for image
 
 // initialize
 @import "./initialize/normalize";    // normalize browsers to make more consistent
@@ -15,4 +16,5 @@
 @import "./global/global";      // global styles
 
 // sections
+@import "./main.scss"
 @import "./layout/header";
