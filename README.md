@@ -133,3 +133,14 @@ $ npm run build
 }
 ```
 
+
+
+## tools/
+
+
+
+### sorted-colors
+
+- A tool to sort the named CSS colors in a way that it shows related colors together
+- [scriptype](https://github.com/scriptype)/**[sorted-colors](https://github.com/scriptype/sorted-colors)**
+
