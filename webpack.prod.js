@@ -12,111 +12,125 @@ const OfflinePlugin = require('offline-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  mode: 'production',
-  devtool: 'source-map',
-  module: {
-    rules: [
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-            options: {
-              minimize: true
+    mode: 'production',
+    devtool: 'source-map',
+    module: {
+        rules: [
+            {
+                test: /\.ejs$/i,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            minimize: true
+                        }
+                    },
+                    {
+                        loader: 'ejs-plain-loader'
+                    }
+                ]
+            },
+//            {
+//                test: /\.html$/,
+//                use: [
+//                    {
+//                        loader: 'html-loader',
+//                        options: {
+//                            minimize: true
+//                        }
+//                    }
+//                ]
+//            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                            config: {
+                                path: `${__dirname}/postcss.config.js`,
+                                ctx: {
+                                    env: 'production'
+                                }
+                            }
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
+                ]
             }
-          }
         ]
-      },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              config: {
-                path: `${__dirname}/postcss.config.js`,
-                ctx: {
-                  env: 'production'
+    },
+    optimization: {
+        minimizer: [
+            new TerserPlugin({
+                test: /\.js(\?.*)?$/i,
+                parallel: true,
+                sourceMap: true
+            })
+        ]
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'style.[contentHash].css',
+            chunkFilename: '[id].css'
+        }),
+        new CompressionPlugin({
+            test: /\.(html|css|js)(\?.*)?$/i // only compressed html/css/js, skips compressing sourcemaps etc
+        }),
+        new ImageminPlugin({
+            test: /\.(jpe?g|png|gif|svg)$/i,
+            gifsicle: {
+                // lossless gif compressor
+                optimizationLevel: 9
+            },
+            pngquant: {
+                // lossy png compressor, remove for default lossless
+                quality: '75'
+            },
+            plugins: [
+                imageminMozjpeg({
+                    // lossy jpg compressor, remove for default lossless
+                    quality: '75'
+                })
+            ]
+        }),
+        new FaviconsWebpackPlugin({
+            logo: './src/images/favicon.svg',
+            favicons: {
+                appName: 'ontheroadjp-webpack-boilerplate',
+                appDescription:
+                'The Webpack boilerplate for static websites.',
+                developerName: 'ontheroad.jp',
+                developerURL: null, // prevent retrieving from the nearest package.json
+                background: '#fafafa',
+                theme_color: '#FFA8A8',
+                icons: {
+                    coast: false,
+                    yandex: false
                 }
-              }
+            },
+            icons: {
+                twitter: true,
+                windows: true
             }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-      }
-    ]
-  },
-  optimization: {
-    minimizer: [
-      new TerserPlugin({
-        test: /\.js(\?.*)?$/i,
-        parallel: true,
-        sourceMap: true
-      })
-    ]
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'style.[contentHash].css',
-      chunkFilename: '[id].css'
-    }),
-    new CompressionPlugin({
-      test: /\.(html|css|js)(\?.*)?$/i // only compressed html/css/js, skips compressing sourcemaps etc
-    }),
-    new ImageminPlugin({
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      gifsicle: {
-        // lossless gif compressor
-        optimizationLevel: 9
-      },
-      pngquant: {
-        // lossy png compressor, remove for default lossless
-        quality: '75'
-      },
-      plugins: [
-        imageminMozjpeg({
-          // lossy jpg compressor, remove for default lossless
-          quality: '75'
-        })
-      ]
-    }),
-    new FaviconsWebpackPlugin({
-      logo: './src/images/favicon.svg',
-      favicons: {
-        appName: 'ontheroadjp-webpack-boilerplate',
-        appDescription:
-          'The Webpack boilerplate for static websites.',
-        developerName: 'ontheroad.jp',
-        developerURL: null, // prevent retrieving from the nearest package.json
-        background: '#fafafa',
-        theme_color: '#FFA8A8',
-        icons: {
-          coast: false,
-          yandex: false
-        }
-      },
-      icons: {
-        twitter: true,
-        windows: true
-      }
-    }),
-    new OfflinePlugin()
-  ],
-  output: {
-    filename: '[name].[contentHash].js',
-    path: path.resolve(__dirname, 'dist')
-  }
+        }),
+        new OfflinePlugin()
+    ],
+    output: {
+        filename: '[name].[contentHash].js',
+        path: path.resolve(__dirname, 'dist')
+    }
 });
