@@ -1,20 +1,23 @@
 // css framework
 // @import "../node_modules/bulma/bulma";
 
-// utilities
-@import "./utils/mixins";       // global mixins
-@import "./utils/variables";    // global variables
-@import "./utils/images";       // global for image
-
 // initialize
-@import "./initialize/normalize";    // normalize browsers to make more consistent
-@import "./initialize/clearfix";     // clearfix for floats
-@import "./initialize/border-box";   // global border-box setting
+@import "./initialize/normalize";
+@import "./initialize/clearfix";
+@import "./initialize/border-box";
 
-// global styles
-@import "./global/typography";  // global typography
-@import "./global/global";      // global styles
+// variables
+@import "./variables/core";
 
-// sections
-@import "./layout/_main.scss";
-@import "./layout/_header";
+// mixins
+@import "./mixins/mediaquery";
+@import "./mixins/flexbox";
+
+// components
+@import "./components/core";
+@import "./components/typography";
+@import "./components/navbar";
+@import "./components/section_header";
+@import "./components/section_body";
+@import "./components/box";
+@import "./components/images";

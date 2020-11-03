@@ -1,7 +1,7 @@
 /* Media Queries
 ========================================================================== */
 
-@mixin respond-to($breakpoint) {
+@mixin mq($breakpoint) {
     @if $breakpoint== "mobile-small" {
         @media (max-width: 320px) {
             @content;
@@ -42,7 +42,9 @@
 }
 
 //! Example usage
-/* @include respond-to('mobile') {} */
+/*
+@include mq('mobile') {}
+*/
 
 /* CENTERING */
 @mixin centered {
