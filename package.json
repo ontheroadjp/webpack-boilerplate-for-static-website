@@ -15,6 +15,9 @@
     "dev": "webpack-dev-server --open --config webpack.dev.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "autoprefixer": "^9.8.5",
     "babel-eslint": "^10.1.0",
