@@ -1,14 +1,15 @@
-<% const meta = include('variables/common/_meta.ejs'); %>
+<%
+    include('variables/_head_index.ejs');
+    const siteMeta = siteMetaInfo();
+%>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include('partials/common/_head', {meta: meta}); %>
-</head>
-
+<html lang="<%= siteMeta.lang %>">
+<head><%- include('partials/_head', {meta: siteMeta}) %></head>
 <body>
-<header>
-    <%- include('partials/header/_default'); %>
-</header>
+
+<%- include('pages/_index') %>
+<%# include('pages/_example') %>
+
 </body>
 </html>

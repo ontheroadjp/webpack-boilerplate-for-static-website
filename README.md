@@ -1,6 +1,12 @@
 # Webpack boilerplate for static web site
 
+
+
+This repository forked from < [tr1s](https://github.com/tr1s)/**[tris-webpack-boilerplate](https://github.com/tr1s/tris-webpack-boilerplate)** >
+               
+
 ## Install
+
 ```bash
 $ git clone https://github.com/ontheroadjp/webpack-boilerplate-for-static-website.git mysite
 $ cd mysite
@@ -18,6 +24,40 @@ $ npm run dev
 # for Production
 $ npm run build
 ```
+
+
+
+## Build WEB Site 
+
+- webpack entry point is ``src/js/index.js``
+    - includes ``src/ejc/index.ejs`` (main page of HTML)
+    - includes ``src/scss/index.scss `` (main SASS file)
+
+
+
+### Edit HTML
+
+- ``<head></head>`` info are in ``src/ejc/variables/common/_meta.ejs``
+- write HTML into ``src/ejc/index.ejs``
+
+
+
+### Edit CSS(sass)
+
+- Write css codes into ``src/scss/layout/_main.scss``
+
+#### adding new scss file
+
+- Your own scss file should be created at under the ``src/scss/layout/`` directory.
+- Add line ``@import "./layout/_new.scss";`` into ``src/scss/index.scss``
+
+
+
+### Edit Javascript
+
+- write javascript code into ``src/js/
+
+
 
 
 

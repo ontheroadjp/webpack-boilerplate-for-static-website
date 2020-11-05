@@ -1,0 +1,7 @@
+// flexbox
+@mixin flexbox($ff: column, $jc: center, $ai: center) {
+    display: flex;
+    flex-flow: $ff;
+    justify-content: $jc;
+    align-items: $ai;
+}

@@ -1,0 +1,35 @@
+//? set your brand colors
+
+$white: #fff;
+
+$light-grey: #fafafa;
+$grey: #d7d7d7;
+
+$black-soft: #444;
+$black: #09090e;
+
+$blue: #2c638f;
+$pink: #fff0f5;
+$yellow: #fffacd;
+
+// Site Colors
+$color-primary: $blue;
+$color-secondary: $pink;
+$color-tertiary: $yellow;
+
+$color-bg: lighten($color-primary, 60%);
+
+$color-title: $white;
+$color-subtitle: $white;
+
+// Font Size
+$font-m: 2.2rem;
+$font-l: calc( #{$font-m} * 1.4 );
+$font-xl: calc( #{$font-l} * 1.4 );
+$font-xxl: calc( #{$font-xl} * 1.4 );
+$font-s: calc( #{$font-m} * 0.8 );
+$font-xs: calc( #{$font-s} * 0.8 );
+
+// Section/Compornent
+$section-narrow: 30px;
+$comp-margin-bottom: 50px;

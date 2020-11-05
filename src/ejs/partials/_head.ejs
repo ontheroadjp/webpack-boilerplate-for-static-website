@@ -1,4 +1,4 @@
-<meta charset="UTF-8" />
+<meta charset="<%= meta.charset %>" />
 <title><%= meta.title %></title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="Description" content="<%= meta.desc %>" />
@@ -6,14 +6,15 @@
 <!-- Open Graph data / Facebook Card data -->
 <meta property="og:title" content="<%= meta.title %>" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="<%= meta.ogpUrl %>" />
-<meta property="og:image" content="<%= meta.ogpImg %>" />
-<meta property="og:image:alt" content="<%= meta.ogpImgAlt %>" />
+<meta property="og:url" content="<%= meta.ogp.url %>" />
+<meta property="og:image" content="<%= meta.ogp.img %>" />
+<meta property="og:image:alt" content="<%= meta.ogp.imgAlt %>" />
 <meta property="og:description" content="<%= meta.desc %>" />
+
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:creator" content="<%= meta.twitterCreator %>" />
+<meta name="twitter:creator" content="<%= meta.twitter.creator %>" />
 
 <!-- Mobile header color for Chrome, Firefox OS and Opera -->
 <meta name="theme-color" content="#2c638f" />
