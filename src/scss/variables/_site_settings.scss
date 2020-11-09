@@ -23,13 +23,9 @@ $color-title: $white;
 $color-subtitle: $white;
 
 // Font Size
-$font-m: 2.2rem;
-$font-l: calc( #{$font-m} * 1.4 );
-$font-xl: calc( #{$font-l} * 1.4 );
-$font-xxl: calc( #{$font-xl} * 1.4 );
+$font-m: 1.6rem;
+$font-l: calc( #{$font-m} * 1.2 );
+$font-xl: calc( #{$font-l} * 1.2 );
+$font-xxl: calc( #{$font-xl} * 1.2 );
 $font-s: calc( #{$font-m} * 0.8 );
 $font-xs: calc( #{$font-s} * 0.8 );
-
-// Section/Compornent
-$section-narrow: 30px;
-$comp-margin-bottom: 50px;
