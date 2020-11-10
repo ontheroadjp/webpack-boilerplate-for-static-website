@@ -1,9 +1,31 @@
-# Webpack boilerplate for static web site
+# HTML5 webpack Works
 
 
 
 This repository forked from < [tr1s](https://github.com/tr1s)/**[tris-webpack-boilerplate](https://github.com/tr1s/tris-webpack-boilerplate)** >
-               
+
+
+
+## Features
+
+- webpack
+    - common
+        - ejs compile
+        - sass compile
+        - add vendor prefix to css
+    - dev build
+        - webpack dev server and watch
+    - production build
+        - minify html, js and css
+        - cash busting for js and css
+        - optimize jpg, png files
+        - zip compression for html, js and css
+        - generate touch-icon for mobile
+- include fontawesome5 (svg)
+
+
+
+
 
 ## Install
 
@@ -27,7 +49,7 @@ $ npm run build
 
 
 
-## Build WEB Site 
+## Build WEB Site
 
 - webpack entry point is ``src/js/index.js``
     - includes ``src/ejc/index.ejs`` (main page of HTML)
