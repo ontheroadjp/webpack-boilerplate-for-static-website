@@ -7,18 +7,14 @@
 @import "./initialize/border-box";
 
 // variables
-@import "./variables/core";
+@import "./variables/site_settings";
 
 // mixins
 @import "./mixins/mediaquery";
 @import "./mixins/flexbox";
 
 // components
-@import "./components/core";
 @import "./components/typography";
+@import "./components/font";
 @import "./components/navbar";
-@import "./components/section_header";
-@import "./components/section_body";
-@import "./components/icon";
-@import "./components/box";
-@import "./components/images";
+@import "./components/main";
